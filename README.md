@@ -35,7 +35,7 @@ ConcertBooking
   sequenceDiagram
     participant User
     participant Service
-
+ 
     User->>Service: 좌석 예약 요청 (날짜, 좌석 정보 입력)
     Service-->>User: 좌석 임시 점유 시간 배정(5분)
 ![Temp_SeatBooking.png](Temp_SeatBooking.png)
