@@ -47,7 +47,7 @@ ConcertBooking
   sequenceDiagram
   participant User
   participant Service
- 
+
   User->>Service: 예약 내역 조회
   alt 5분 이내
   Service-->>User: 예약 내역 출력
