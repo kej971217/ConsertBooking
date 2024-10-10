@@ -1,0 +1,21 @@
+spring:
+  application.name: hhplus_concert_booking
+  datasource:
+    url: jdbc:mysql://localhost:3305/concertbooking?useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: concert
+    password: concert123
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 8080
+
+org.gradle.caching: true
+org.gradle.parallel: true
+org.gradle.jvmargs: -Xmx2g -Dfile.encoding=UTF-8
+kotlin.code.style: official
+app.group: io.hhplus.booking
+app.version: 0.0.1-SNAPSHOT
