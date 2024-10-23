@@ -83,7 +83,7 @@ ConcertBooking
 - PointController
 - QueueController
 - UserController
-  위 파일에 작성
+  위 파일에 작성 
 
 3. 패키지 구조 (Layered Architecture)
    io.hhplus.booking
