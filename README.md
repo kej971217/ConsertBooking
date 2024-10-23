@@ -17,43 +17,26 @@ ConcertBooking
   sequenceDiagram
   participant User
   participant Service
-
-  User->>Service: 원하는 콘서트 상세 조회
-  Service-->>User: 유저 토큰 발급 (순서 대기)
-
-  loop 대기 중
-  Service-->>User: 예약 가능한 순서 대기 중 메시지
-  end
-
-  User->>Service: 예약 가능 날짜 조회
-  Service-->>User: 예약 가능한 날짜 출력
-
-  User->>Service: 선택한 날짜의 예약 가능 좌석 조회
-  Service-->>User: 빈 좌석 정보 출력
+  User->>Service: 원하는 콘서트 조회
+  Service-->>User: 콘서트 상세 정보 전달
   ![image](https://github.com/user-attachments/assets/166e9365-d44a-492d-905d-5bec3c65208b)
 
 
-- 콘서트 좌석 예약
+- 대기열 상태 확인
   sequenceDiagram
   participant User
   participant Service
-
-  User->>Service: 좌석 예약 요청 (날짜, 좌석 정보 입력)
-  Service-->>User: 좌석 임시 점유 시간 배정(5분)
+  User->>Service: 대기열 상태 확인 요청
+  Service-->>User: 대기 상태 또는 통과 여부 전달
   ![image](https://github.com/user-attachments/assets/8ef04fbd-9a63-4a75-a54b-700f0ce267e2)
 
 
-- 콘서트 좌석 예약
+- 콘서트 좌석 예약 요청
   sequenceDiagram
   participant User
   participant Service
-
-  User->>Service: 예약 내역 조회
-  alt 5분 이내
-  Service-->>User: 예약 내역 출력
-  else 5분 초과
-  Service-->>User: 예약 내역 미출력
-  end
+  User->>Service: 좌석 예약 요청 (날짜, 좌석 정보 입력)
+  Service-->>User: 좌석 임시 점유 시간 배정(5분)
   ![image](https://github.com/user-attachments/assets/60bc83b9-d142-4ab0-96d3-3bdf52a7846d)
 
 
@@ -61,12 +44,8 @@ ConcertBooking
   sequenceDiagram
   participant User
   participant Service
-
   User->>Service: 잔액 조회 요청
   Service-->>User: 잔액 및 history 출력
-
-  User->>Service: 잔액 충전 요청
-  Service-->>User: 잔액 충전 및 history 생성
   ![image](https://github.com/user-attachments/assets/f0210ed2-4799-4102-8309-d5c00958b4de)
 
 
@@ -74,7 +53,6 @@ ConcertBooking
   sequenceDiagram
   participant User
   participant Service
-
   User->>Service: 결제 요청
   alt 5분 이내
   Service-->>User: 결제 완료, 결제 history 생성, 좌석 최종 배정, 토큰 만료

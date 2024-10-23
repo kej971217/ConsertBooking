@@ -1,5 +1,6 @@
 package io.hhplus.booking.concert.controller;
 
+import io.hhplus.booking.concert.dto.ConcertDTO;
 import io.hhplus.booking.concert.service.ConcertService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
@@ -19,36 +20,8 @@ public class ConcertController {
      * 콘서트 목록 조회
      */
     @PostMapping("/selectConcertList")
-    public List<Map<String, Object>> selectConcertList(@RequestParam Map<String, Object> requestConcertInfo) {
-        List<Map<String, Object>> concertList = new ArrayList<>();
-
-        // 콘서트 정보 1
-        Map<String, Object> concert1 = new HashMap<>();
-        concert1.put("concertId", "C001");
-        concert1.put("concertTitle", "concert1");
-        concert1.put("concertDate", "2024-12-15 16:00:00");
-        concert1.put("ConcertPlaceId", "P001");
-
-        // 콘서트 정보 2
-        Map<String, Object> concert2 = new HashMap<>();
-        concert2.put("concertId", "C002");
-        concert2.put("concertNm", "concert2");
-        concert2.put("concertDt", "2024-12-20 16:00:00");
-        concert2.put("ConcertPlaceId", "P002");
-
-        // 콘서트 정보 3
-        Map<String, Object> concert3 = new HashMap<>();
-        concert3.put("concertId", "C003");
-        concert3.put("concertTitle", "concert3");
-        concert3.put("concertDate", "2024-12-25 16:00:00");
-        concert2.put("ConcertPlaceId", "P003");
-
-        // 콘서트 리스트에 추가
-        concertList.add(concert1);
-        concertList.add(concert2);
-        concertList.add(concert3);
-
-        return concertList;
+    public List<ConcertDTO> selectConcertList(@RequestParam Map<String, Object> requestConcertInfo) {
+        return concertService.selectConcertList(requestConcertInfo);
     }
 
 

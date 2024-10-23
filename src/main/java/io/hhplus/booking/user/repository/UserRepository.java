@@ -1,9 +1,9 @@
 package io.hhplus.booking.user.repository;
 
-import io.hhplus.booking.user.model.UserVO;
+import io.hhplus.booking.user.dto.UserDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<UserVO, Long> {
+public interface UserRepository extends JpaRepository<UserDTO, Long> {
 
-    UserVO findByUserId(String userId);
+    UserDTO findByUserId(String userId);
 }

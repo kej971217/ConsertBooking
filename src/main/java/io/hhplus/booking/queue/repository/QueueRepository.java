@@ -1,4 +1,9 @@
 package io.hhplus.booking.queue.repository;
 
-public class QueueRepository {
+import io.hhplus.booking.queue.dto.QueueDTO;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface QueueRepository extends JpaRepository<QueueDTO, Long> {
+
+
 }
